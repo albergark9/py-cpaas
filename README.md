@@ -1,2 +1,2 @@
 # py-cpaas
-CPaaS backend in Python
+Avaya CPaaS backend in Python
