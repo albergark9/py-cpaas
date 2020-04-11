@@ -3,11 +3,8 @@ from zang.inboundxml import Response, Say
 from zang.inboundxml import Voice, Language
 from flask_restful import Resource, Api
 
-class Hello(Resource):
-    def get(self, name):
-        return {"Hello":name}
 
-class HelloXML(Resource):
+class ivrSample(Resource):
     def get(self):
         say = Say("Welcome to Zang!",
                   language=Language.EN,
@@ -19,12 +16,7 @@ class HelloXML(Resource):
 
 app = Flask(__name__)
 api = Api(app, default_mediatype='application/xml')
-
-#app = Flask(__name__)
-#api = Api(app)
-
-api.add_resource(Hello, '/hello/<name>')
-api.add_resource(HelloXML, '/helloXML')
+api.add_resource(ivrSample, '/ivr-sample')
 
 
 @app.route('/')
