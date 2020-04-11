@@ -1,4 +1,9 @@
 Flask==1.1.1
 Flask-RESTful==0.3.8
--e git+https://github.com/albergark9/py-cpaas.git@23b8bed78677cdaf657dfec46df521fd5fe6a3d8#egg=zang&subdirectory=zang-python-master
-
+Jinja2==2.6
+Werkzeug==0.8.3
+certifi==0.0.8
+chardet==1.0.1
+distribute==0.6.24
+gunicorn==0.14.2
+requests==0.11.1
