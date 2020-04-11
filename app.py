@@ -1,6 +1,6 @@
+from flask import Flask, render_template, Response
 from zang.inboundxml import Response, Say
 from zang.inboundxml import Voice, Language
-from flask import Flask
 from flask_restful import Resource, Api
 
 class Hello(Resource):
@@ -15,11 +15,21 @@ class HelloXML(Resource):
                   loop=3)
         response = Response()
         response.addElement(say)
-        return response.xml
+        return app.response_class(response.xml, mimetype='application/xml')
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app, default_mediatype='application/xml')
+
+#app = Flask(__name__)
+#api = Api(app)
+
 api.add_resource(Hello, '/hello/<name>')
 api.add_resource(HelloXML, '/helloXML')
-if __name__ == '__main__':
-    app.run(debug=True)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+if __name__ == '__main__': app.run(debug=True)

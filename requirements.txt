@@ -1,4 +1,8 @@
-Flask==1.1.1
-Flask-RESTful==0.3.8
-requests==0.11.1
+Flask
+Flask-RESTful
+gunicorn
+itsdangerous
+Jinja2
+peewee
+Werkzeug
 ./zang-python-master
